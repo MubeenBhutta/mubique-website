@@ -1,28 +1,19 @@
-// Import Header
 fetch('./component/header.html')
   .then(res => res.text())
   .then(data => {
-    const headerDiv = document.getElementById('header');
-    if(headerDiv) headerDiv.innerHTML = data;
-
+    document.getElementById('header').innerHTML = data;
     const menuBtn = document.getElementById('menu-toggle');
     const navLinks = document.querySelector('.nav-links');
-    if(menuBtn) menuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
-    });
+    if(menuBtn) menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
   });
 
 // Import Footer
 fetch('./component/footer.html')
   .then(res => res.text())
   .then(data => {
-    const footerDiv = document.getElementById('footer');
-    if(footerDiv) footerDiv.innerHTML = data;
-
-    const yearElem = document.getElementById('year');
-    if(yearElem) yearElem.textContent = new Date().getFullYear();
+    document.getElementById('footer').innerHTML = data;
+    document.getElementById('year').textContent = new Date().getFullYear();
   });
-
 // Portfolio slider code (unchanged)
 const portfolioSlider = document.querySelector(".portfolio-slider");
 let isDown = false, startX, scrollLeft;
